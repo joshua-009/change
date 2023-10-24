@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager-Requests</title>
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Welcome back, Manager</h1>
+            </div>
+            <div class="logout">
+                <a href="loginpage.html"><button class="logout-button">Logout</button></a>
+            </div>
+        </div>
+
+        <h2>Change Requests</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class="Name">Name</th>
+                    <th class="Role">Role</th>
+                    <th class="DoR">Date of Raising</th>
+                    <th class="Issue">Issue</th>
+                    <th class="Document">Documents</th>
+                    <th class="ApprovalStatus">Approval Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name1</td>
+                    <td>Role1</td>
+                    <td>date1</td>
+                    <td>issue1</td>
+                    <td><a href="#">Document Link</a></td>
+                    <td>
+                        <select name="status">
+                            <option value="nothing">--Select Status--</option>
+                            <option value="yes">Approved</option>
+                            <option value="no">Not Approved</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name2</td>
+                    <td>Role2</td>
+                    <td>date2</td>
+                    <td>issue2</td>
+                    <td><a href="#">Document Link</a></td>
+                    <td>
+                        <select name="status">
+                            <option value="nothing">--Select Status--</option>
+                            <option value="yes">Approved</option>
+                            <option value="no">Not Approved</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</body>
+</html>
