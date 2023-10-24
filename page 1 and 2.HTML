@@ -37,11 +37,12 @@
         }
 
         input[type="text"], input[type="password"], select {
-            width: 100%;
+            width: 92%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 10px;
+            background-color: #f2f2f2; /* Light gray background */
         }
 
         input[type="submit"] {
@@ -60,10 +61,10 @@
         /* Styling for the Admin Data Entry section */
         #admin-data-entry {
             display: none;
-            background-color: #f2f2f2; /* Light gray background */
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
+            background-color: #fff; /* White background to separate from the grey background */
         }
 
         #admin-data-entry h2 {
@@ -71,19 +72,30 @@
         }
 
         #admin-data-entry label {
-            font-weight: normal;
+            font-weight: bold;
+        }
+
+        /* Styling for the Logout button */
+        #logout-button {
+            display: none;
+            background-color: #ff4c4c; /* Red background color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="login-container">
         <h2>Login</h2>
-        <form action="#" method="post" id="login-form" onsubmit="authenticateUser(); return false;">
+        <form action="#" method="post" id="login-form" onsubmit="return authenticateUser()">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name "password" required>
 
             <label for="role">Role:</label>
             <select id="role" name="role">
@@ -113,23 +125,38 @@
 
             <input type="submit" value="Submit">
         </form>
+
+        <button id="logout-button" onclick="logoutUser()">Logout</button>
     </div>
 
     <script>
+        let authenticated = false;
+
         function authenticateUser() {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
             const role = document.getElementById("role").value;
-
-            // Simulated client-side authentication (replace this with actual server-side authentication)
+            
+            // Check username, password, and role for authentication
             if (username === "sahyadri" && password === "sahyadri" && role === "admin") {
-                const loginForm = document.getElementById("login-form");
-                loginForm.style.display = "none"; // Hide the login form
-                const adminDataEntry = document.getElementById("admin-data-entry");
-                adminDataEntry.style.display = "block"; // Show the admin data entry section
+                authenticated = true;
+                document.getElementById("login-container").style.display = "none"; // Hide the login form
+                document.getElementById("admin-data-entry").style.display = "block";
+                document.getElementById("logout-button").style.display = "block";
+                return false; // Prevent form submission
             } else {
-                alert("Invalid credentials. Please try again.");
+                alert("Authentication failed. Please check your credentials.");
+                return false; // Prevent form submission
             }
+        }
+
+        function logoutUser() {
+            authenticated = false;
+            document.getElementById("login-form").reset();
+            document.getElementById("login-container").style.display = "block"; // Show the login form
+            document.getElementById("admin-data-entry").style.display = "none";
+            document.getElementById("logout-button").style.display = "none";
+            return false;
         }
     </script>
 </body>
