@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c35; /* Dark background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #4CAF50; /* Green text color */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #555; /* Slightly darker text color */
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45A049;
+        }
+
+        /* Styling for the Admin Data Entry section */
+        #admin-data-entry {
+            display: none;
+            background-color: #f2f2f2; /* Light gray background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        #admin-data-entry h2 {
+            color: #4CAF50;
+        }
+
+        #admin-data-entry label {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="#" method="post" id="login-form" onsubmit="authenticateUser(); return false;">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role">
+                <option value="admin">Admin</option>
+                <option value="employee">Employee</option>
+                <option value="product_manager">Product Manager</option>
+                <option value="change_team">Change Team</option>
+                <option value="resource_manager">Resource Manager</option>
+            </select>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    
+    <!-- Admin Data Entry Page -->
+    <div class="container" id="admin-data-entry">
+        <h2>Admin Data Entry</h2>
+        <form action="admin-data-entry-script.php" method="post">
+            <label for="new_employee_name">Enter name of new employee:</label>
+            <input type="text" id="new_employee_name" name="new_employee_name" required>
+
+            <label for="new_employee_role">Role of new employee:</label>
+            <input type="text" id="new_employee_role" name="new_employee_role" required>
+
+            <label for="new_employee_password">Password for new employee:</label>
+            <input type="password" id="new_employee_password" name="new_employee_password" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function authenticateUser() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const role = document.getElementById("role").value;
+
+            // Simulated client-side authentication (replace this with actual server-side authentication)
+            if (username === "sahyadri" && password === "sahyadri" && role === "admin") {
+                const loginForm = document.getElementById("login-form");
+                loginForm.style.display = "none"; // Hide the login form
+                const adminDataEntry = document.getElementById("admin-data-entry");
+                adminDataEntry.style.display = "block"; // Show the admin data entry section
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
