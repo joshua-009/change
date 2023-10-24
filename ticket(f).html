@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket</title>
+    <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Ticket Generation</h1>
+            </div>
+            <div class="cancel">
+                <a href="profile.html"><button class="cancel-button">Cancel</button></a>
+            </div>
+        </div>
+
+        <div class="container2">
+            <form action="#">
+                <div class="gen format1">
+                    <div><p><strong>Ticket No: </strong>number</p></div>
+                    <div><p><strong>Date: </strong>date</p></div>
+                </div>
+
+                <div class="data format1">
+                    <div>
+                        <label for="subject"><strong>Subject</strong></label>
+                        <input type="text" id="subject" name="subject" class="inp">
+                    </div>
+                    <div>
+                        <label for="descr"><strong>Description</strong></label>
+                        <textarea name="descr" id="descr" class="inp" ></textarea>
+                    </div>
+                    <div>
+                        <label for="doc"><strong>Link Document</strong></label>
+                        <input type="file" name="doc" id="doc" class="inp">
+                    </div>
+                </div>
+                <div><input type="submit" value="Submit" id="submit"></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
